@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum Seguro {
+public enum SeguroCategoria {
     VIDA(0.01,0.022, 0.0),
     AUTO(0.055, 0.04, 0.01),
     VIAGEM(0.02, 0.04, 0.01),
