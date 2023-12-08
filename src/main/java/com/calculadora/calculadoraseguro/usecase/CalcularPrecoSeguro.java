@@ -1,5 +1,6 @@
 package com.calculadora.calculadoraseguro.usecase;
 
+import com.calculadora.calculadoraseguro.exception.PrecoBaseException;
 import com.calculadora.calculadoraseguro.adapters.implemetation.CalculoCOFINS;
 import com.calculadora.calculadoraseguro.adapters.implemetation.CalculoIOF;
 import com.calculadora.calculadoraseguro.adapters.implemetation.CalculoPIS;
@@ -15,6 +16,10 @@ public class CalcularPrecoSeguro {
                 new CalculoPIS(seguro.getPis()),
                 new CalculoCOFINS(seguro.getCofins())
         );
+
+        if(precoBase == null){
+            throw new PrecoBaseException("Preço Base não enviado para o calculo");
+        }
 
         return calculadora.calcularPrecoFinal(precoBase);
     }

@@ -14,4 +14,8 @@ public class SeguroService {
         return seguroRepository.save(seguro);
     }
 
+    public SeguroEntity buscarSeguro(String id) {
+        return seguroRepository.findById(id).orElseThrow();
+    }
+
 }

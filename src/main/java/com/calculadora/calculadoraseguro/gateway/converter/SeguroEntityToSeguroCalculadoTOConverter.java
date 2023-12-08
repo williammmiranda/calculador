@@ -1,19 +1,19 @@
 package com.calculadora.calculadoraseguro.gateway.converter;
 
 import com.calculadora.calculadoraseguro.gateway.entity.SeguroEntity;
-import com.calculadora.calculadoraseguro.http.domain.SeguroCalculadoTO;
+import com.calculadora.calculadoraseguro.http.domain.SeguroCalculadoDTO;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SeguroEntityToSeguroCalculadoTOConverter {
 
-    public SeguroCalculadoTO convert(SeguroEntity seguroEntity) {
-        SeguroCalculadoTO seguroCalculadoTO = new SeguroCalculadoTO();
-        seguroCalculadoTO.setId(seguroEntity.getId());
-        seguroCalculadoTO.setNome(seguroEntity.getNome());
-        seguroCalculadoTO.setSeguroCategoria(seguroEntity.getCategoria());
-        seguroCalculadoTO.setPrecoBase(seguroEntity.getPrecoBase());
-        seguroCalculadoTO.setPrecoTarifado(seguroEntity.getPrecoTarifado());
-        return seguroCalculadoTO;
+    public SeguroCalculadoDTO convert(SeguroEntity seguroEntity) {
+        SeguroCalculadoDTO seguroCalculadoDTO = new SeguroCalculadoDTO();
+        seguroCalculadoDTO.setId(seguroEntity.getId());
+        seguroCalculadoDTO.setNome(seguroEntity.getNome());
+        seguroCalculadoDTO.setSeguroCategoria(seguroEntity.getCategoria());
+        seguroCalculadoDTO.setPrecoBase(seguroEntity.getPrecoBase());
+        seguroCalculadoDTO.setPrecoTarifado(seguroEntity.getPrecoTarifado());
+        return seguroCalculadoDTO;
     }
 }
