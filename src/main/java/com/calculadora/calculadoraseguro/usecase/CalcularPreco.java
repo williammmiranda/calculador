@@ -1,13 +1,11 @@
 package com.calculadora.calculadoraseguro.usecase;
 
 import com.calculadora.calculadoraseguro.adapters.Calculo;
-import org.springframework.stereotype.Service;
 
-@Service
-public class CalculadoraPreco {
+public class CalcularPreco {
     private Calculo[] impostos;
 
-    public CalculadoraPreco(Calculo... impostos) {
+    public CalcularPreco(Calculo... impostos) {
         this.impostos = impostos;
     }
 

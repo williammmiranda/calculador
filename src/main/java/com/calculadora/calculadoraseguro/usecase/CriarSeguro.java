@@ -7,7 +7,7 @@ import com.calculadora.calculadoraseguro.domain.Seguro;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CalcularPrecoSeguro {
+public class CriarSeguro {
 
     public double executar(Double precoBase, Seguro seguro) {
         CalcularPreco calculadora = new CalcularPreco(

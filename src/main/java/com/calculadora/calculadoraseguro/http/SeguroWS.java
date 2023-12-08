@@ -17,7 +17,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping(value = SEGURO)
 @AllArgsConstructor
 @Api(tags = "Seguros", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
-public class CalculadoraWS {
+public class SeguroWS {
 
     private final CalcularPrecoSeguro calcularPrecoSeguro;
 
