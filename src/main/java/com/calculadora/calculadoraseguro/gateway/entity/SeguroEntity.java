@@ -1,9 +1,9 @@
 package com.calculadora.calculadoraseguro.gateway.entity;
 
-import com.calculadora.calculadoraseguro.domain.SeguroCategoria;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "SEGURO")
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class SeguroEntity {

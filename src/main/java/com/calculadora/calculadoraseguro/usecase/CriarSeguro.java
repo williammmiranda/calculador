@@ -1,21 +1,30 @@
 package com.calculadora.calculadoraseguro.usecase;
 
-import com.calculadora.calculadoraseguro.adapters.implemetation.CalculoCOFINS;
-import com.calculadora.calculadoraseguro.adapters.implemetation.CalculoIOF;
-import com.calculadora.calculadoraseguro.adapters.implemetation.CalculoPIS;
-import com.calculadora.calculadoraseguro.domain.SeguroCategoria;
+import com.calculadora.calculadoraseguro.gateway.converter.SeguroCalculadoTOToSeguroEntityConverter;
+import com.calculadora.calculadoraseguro.gateway.converter.SeguroEntityToSeguroCalculadoTOConverter;
+import com.calculadora.calculadoraseguro.gateway.service.SeguroService;
+import com.calculadora.calculadoraseguro.http.domain.SeguroCalculadoTO;
+import com.calculadora.calculadoraseguro.http.domain.SeguroTO;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class CriarSeguro {
+    private SeguroEntityToSeguroCalculadoTOConverter seguroEntityToSeguroCalculadoTOConverter;
+    private SeguroCalculadoTOToSeguroEntityConverter seguroCalculadoTOToSeguroEntityConverter;
+    private SeguroService seguroService;
+    private CalcularPrecoSeguro calcularPrecoSeguro;
 
-    public double executar(Double precoBase, SeguroCategoria seguro) {
-        CalcularPreco calculadora = new CalcularPreco(
-                new CalculoIOF(seguro.getIof()),
-                new CalculoPIS(seguro.getPis()),
-                new CalculoCOFINS(seguro.getCofins())
-        );
+    public SeguroCalculadoTO executar(SeguroTO seguroTO) {
+        var seguroCalculadoTO = new SeguroCalculadoTO();
+        seguroCalculadoTO.setNome(seguroTO.getNome());
+        seguroCalculadoTO.setPrecoBase(seguroTO.getPrecoBase());
+        seguroCalculadoTO.setSeguroCategoria(seguroTO.getSeguroCategoria());
+        seguroCalculadoTO.setPrecoTarifado(calcularPrecoSeguro.executar(seguroTO.getPrecoBase(), seguroTO.getSeguroCategoria()));
 
-        return calculadora.calcularPrecoFinal(precoBase);
+        var seguroEntity = seguroService.salvarSeguro(seguroCalculadoTOToSeguroEntityConverter.convert(seguroCalculadoTO));
+
+        return seguroEntityToSeguroCalculadoTOConverter.convert(seguroEntity);
     }
 }

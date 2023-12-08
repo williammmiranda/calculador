@@ -1,4 +1,4 @@
-package com.calculadora.calculadoraseguro.domain;
+package com.calculadora.calculadoraseguro.gateway.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -226,3 +226,9 @@ Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:461)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	... 57 more
+2023-12-08 14:42:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'b3bbaa16-7337-4d2b-87d4-8ac160725d8b' (SEGURO: ""ID"" BIGINT DEFAULT NEXT VALUE FOR ""PUBLIC"".""SYSTEM_SEQUENCE_3CAB78B4_3495_4CC8_ABDE_02FE404440F1"" NOT NULL NULL_TO_DEFAULT SEQUENCE ""PUBLIC"".""SYSTEM_SEQUENCE_3CAB78B4_3495_4CC8_ABDE_02FE404440F1"")"; SQL statement:
+insert into seguro (categoria, nome, preco_base, preco_tarifado, id) values (?, ?, ?, ?, ?) [22018-200]
+2023-12-08 14:46:18 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DROPT[*] TABLE SEGURO"; expected "DELETE, DROP, DECLARE, DEALLOCATE"; SQL statement:
+DROPT TABLE SEGURO [42001-200]

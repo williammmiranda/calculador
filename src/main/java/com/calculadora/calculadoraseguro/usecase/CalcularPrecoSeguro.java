@@ -3,7 +3,7 @@ package com.calculadora.calculadoraseguro.usecase;
 import com.calculadora.calculadoraseguro.adapters.implemetation.CalculoCOFINS;
 import com.calculadora.calculadoraseguro.adapters.implemetation.CalculoIOF;
 import com.calculadora.calculadoraseguro.adapters.implemetation.CalculoPIS;
-import com.calculadora.calculadoraseguro.domain.SeguroCategoria;
+import com.calculadora.calculadoraseguro.gateway.entity.SeguroCategoria;
 import org.springframework.stereotype.Service;
 
 @Service
