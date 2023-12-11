@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "SEGURO")
@@ -30,10 +31,10 @@ public class SeguroEntity {
     private SeguroCategoria categoria;
 
     @Column(name = "preco_base")
-    private Double precoBase;
+    private BigDecimal precoBase;
 
     @Column(name = "preco_tarifado")
-    private Double precoTarifado;
+    private BigDecimal precoTarifado;
 
 
 }

@@ -1,11 +1,17 @@
 package com.calculadora.calculadoraseguro.http.domain;
 
 import com.calculadora.calculadoraseguro.gateway.entity.SeguroCategoria;
+import com.calculadora.calculadoraseguro.http.domain.utils.BigDecimalSerializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
 
 @Data
+@NoArgsConstructor
 public class SeguroTO {
     @ApiModelProperty(value = "Nome do Seguro", name = "id", dataType = "String", example = "Seguro de Vida Individual")
     @JsonProperty("nome")
@@ -17,5 +23,7 @@ public class SeguroTO {
 
     @ApiModelProperty(value = "Preço do Seguro antes das tarifas", name = "preco_base", dataType = "Double", example = "100.00")
     @JsonProperty("preco_base")
-    private Double precoBase;
+    @JsonSerialize(using = BigDecimalSerializer.class)
+    private BigDecimal precoBase;
+
 }

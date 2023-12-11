@@ -1,7 +1,6 @@
 package com.calculadora.calculadoraseguro.usecase;
 
-import com.calculadora.calculadoraseguro.gateway.converter.SeguroCalculadoTOToSeguroEntityConverter;
-import com.calculadora.calculadoraseguro.gateway.converter.SeguroEntityToSeguroCalculadoTOConverter;
+import com.calculadora.calculadoraseguro.gateway.converter.SeguroCalculadoConverter;
 import com.calculadora.calculadoraseguro.gateway.entity.SeguroEntity;
 import com.calculadora.calculadoraseguro.gateway.service.SeguroService;
 import com.calculadora.calculadoraseguro.http.domain.SeguroCalculadoDTO;
@@ -12,8 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class CriarSeguro {
-    private final SeguroEntityToSeguroCalculadoTOConverter seguroEntityToSeguroCalculadoTOConverter;
-    private final SeguroCalculadoTOToSeguroEntityConverter seguroCalculadoTOToSeguroEntityConverter;
+    private final SeguroCalculadoConverter seguroCalculadoConverter;
     private final SeguroService seguroService;
     private final CalcularPrecoSeguro calcularPrecoSeguro;
 
@@ -27,21 +25,21 @@ public class CriarSeguro {
     }
 
     private SeguroCalculadoDTO gerarSeguroCalculadoTO(SeguroTO seguroTO){
-        var seguroCalculadoTO = new SeguroCalculadoDTO();
+        var seguroCalculadoDTO = new SeguroCalculadoDTO();
+        seguroCalculadoDTO.setNome(seguroTO.getNome());
+        seguroCalculadoDTO.setSeguroCategoria(seguroTO.getSeguroCategoria());
+        seguroCalculadoDTO.setPrecoBase(seguroTO.getPrecoBase());
+        seguroCalculadoDTO.setPrecoTarifado(calcularPrecoSeguro.executar(seguroTO.getPrecoBase(), seguroTO.getSeguroCategoria()));
 
-        seguroCalculadoTO.setNome(seguroTO.getNome());
-        seguroCalculadoTO.setPrecoBase(seguroTO.getPrecoBase());
-        seguroCalculadoTO.setSeguroCategoria(seguroTO.getSeguroCategoria());
-        seguroCalculadoTO.setPrecoTarifado(calcularPrecoSeguro.executar(seguroTO.getPrecoBase(), seguroTO.getSeguroCategoria()));
+        return seguroCalculadoDTO;
 
-        return seguroCalculadoTO;
     }
 
     private SeguroEntity salvarSeguro(SeguroCalculadoDTO seguroCalculadoDTO) {
-        return seguroService.salvarSeguro(seguroCalculadoTOToSeguroEntityConverter.convert(seguroCalculadoDTO));
+        return seguroService.salvarSeguro(seguroCalculadoConverter.convertDTOtoEntity(seguroCalculadoDTO));
     }
 
     private SeguroCalculadoDTO converterSeguroEntityParaCalculadoTO(SeguroEntity seguroEntity) {
-        return seguroEntityToSeguroCalculadoTOConverter.convert(seguroEntity);
+        return seguroCalculadoConverter.converterEntityToDTO(seguroEntity);
     }
 }

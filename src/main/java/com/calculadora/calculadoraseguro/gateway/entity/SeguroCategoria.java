@@ -3,17 +3,20 @@ package com.calculadora.calculadoraseguro.gateway.entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.math.BigDecimal;
+
 @Getter
 @AllArgsConstructor
 public enum SeguroCategoria {
-    VIDA(0.01,0.022, 0.0),
-    AUTO(0.055, 0.04, 0.01),
-    VIAGEM(0.02, 0.04, 0.01),
-    RESIDENCIAL(0.04, 0.0, 0.01),
-    PATRIMONIAL(0.05, 0.03,0.0);
+    VIDA(BigDecimal.valueOf(0.01), BigDecimal.valueOf(0.022), BigDecimal.ZERO),
+    AUTO(BigDecimal.valueOf(0.055), BigDecimal.valueOf(0.04), BigDecimal.valueOf(0.01)),
+    VIAGEM(BigDecimal.valueOf(0.02), BigDecimal.valueOf(0.04), BigDecimal.valueOf(0.01)),
+    RESIDENCIAL(BigDecimal.valueOf(0.04), BigDecimal.ZERO, BigDecimal.valueOf(0.01)),
+    PATRIMONIAL(BigDecimal.valueOf(0.05), BigDecimal.valueOf(0.03), BigDecimal.ZERO);
 
-    private final Double iof;
-    private final Double pis;
-    private final Double cofins;
+
+    private final BigDecimal iof;
+    private final BigDecimal pis;
+    private final BigDecimal cofins;
 
 }

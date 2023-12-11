@@ -1,6 +1,8 @@
 package com.calculadora.calculadoraseguro.usecase;
 
-import com.calculadora.calculadoraseguro.adapters.Calculo;
+import com.calculadora.calculadoraseguro.usecase.adapters.Calculo;
+
+import java.math.BigDecimal;
 
 public class CalcularPreco {
     private Calculo[] impostos;
@@ -9,11 +11,11 @@ public class CalcularPreco {
         this.impostos = impostos;
     }
 
-    public double calcularPrecoFinal(double precoBase) {
-        double precoFinal = precoBase;
+    public BigDecimal calcularPrecoFinal(BigDecimal precoBase) {
+        BigDecimal precoFinal = precoBase;
 
         for (Calculo imposto : impostos) {
-            precoFinal += imposto.calcular(precoBase);
+            precoFinal = precoFinal.add(imposto.calcular(precoBase));
         }
 
         return precoFinal;

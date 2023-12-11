@@ -1,6 +1,6 @@
 package com.calculadora.calculadoraseguro.usecase;
 
-import com.calculadora.calculadoraseguro.gateway.converter.SeguroEntityToSeguroCalculadoTOConverter;
+import com.calculadora.calculadoraseguro.gateway.converter.SeguroCalculadoConverter;
 import com.calculadora.calculadoraseguro.gateway.entity.SeguroEntity;
 import com.calculadora.calculadoraseguro.gateway.service.SeguroService;
 import com.calculadora.calculadoraseguro.http.domain.SeguroCalculadoDTO;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class BuscarSeguro {
     private final SeguroService seguroService;
-    private final SeguroEntityToSeguroCalculadoTOConverter seguroEntityToSeguroCalculadoTOConverter;
+    private final SeguroCalculadoConverter seguroCalculadoConverter;
 
     public SeguroCalculadoDTO executar(String id) {
 
@@ -25,6 +25,7 @@ public class BuscarSeguro {
     }
 
     private SeguroCalculadoDTO converterSeguroEntityParaCalculadoTO(SeguroEntity seguroEntity) {
-        return seguroEntityToSeguroCalculadoTOConverter.convert(seguroEntity);
+
+        return seguroCalculadoConverter.converterEntityToDTO(seguroEntity);
     }
 }
