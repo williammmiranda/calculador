@@ -14,18 +14,12 @@ public class BuscarSeguro {
     private final SeguroCalculadoConverter seguroCalculadoConverter;
 
     public SeguroCalculadoDTO executar(String id) {
+        SeguroEntity seguroEntity = seguroService.buscarSeguro(id);
 
-        var seguroEntity = buscarSeguro(id);
-
-        return converterSeguroEntityParaCalculadoTO(seguroEntity);
+        return converterParaDTO(seguroEntity);
     }
 
-    private SeguroEntity buscarSeguro(String id) {
-        return seguroService.buscarSeguro(id);
-    }
-
-    private SeguroCalculadoDTO converterSeguroEntityParaCalculadoTO(SeguroEntity seguroEntity) {
-
+    private SeguroCalculadoDTO converterParaDTO(SeguroEntity seguroEntity) {
         return seguroCalculadoConverter.converterEntityToDTO(seguroEntity);
     }
 }

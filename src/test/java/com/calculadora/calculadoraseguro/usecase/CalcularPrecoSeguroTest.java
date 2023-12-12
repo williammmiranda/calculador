@@ -1,51 +1,62 @@
 package com.calculadora.calculadoraseguro.usecase;
 
-import com.calculadora.calculadoraseguro.usecase.adapters.Calculo;
+import com.calculadora.calculadoraseguro.exception.PrecoBaseException;
+import com.calculadora.calculadoraseguro.gateway.entity.SeguroCategoria;
+import com.calculadora.calculadoraseguro.usecase.adapter.implemetation.CalculoCOFINS;
+import com.calculadora.calculadoraseguro.usecase.adapter.implemetation.CalculoIOF;
+import com.calculadora.calculadoraseguro.usecase.adapter.implemetation.CalculoPIS;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.anyDouble;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 public class CalcularPrecoSeguroTest {
 
-    @Test
-    void testCalcularPrecoFinalSemImpostos() {
-        CalcularPreco calcularPreco = new CalcularPreco();
-        BigDecimal precoFinal = calcularPreco.calcularPrecoFinal(BigDecimal.valueOf(50));
-       // assertEquals(BigDecimal.valueOf(50), precoFinal, BigDecimal.valueOf(0.01));
+    @Mock
+    private CalculoIOF calculoIOF;
+
+    @Mock
+    private CalculoPIS calculoPIS;
+
+    @Mock
+    private CalculoCOFINS calculoCOFINS;
+
+    @InjectMocks
+    private CalcularPrecoSeguro calcularPrecoSeguro;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    void testCalcularPrecoFinalComImpostos() {
-        Calculo imposto1 = mock(Calculo.class);
-        Calculo imposto2 = mock(Calculo.class);
+    void testExecutarComPrecoBaseNulo() {
+        CalcularPrecoSeguro calcularPrecoSeguro = new CalcularPrecoSeguro();
 
-        when(imposto1.calcular(any())).thenReturn(BigDecimal.valueOf(5));
-        when(imposto2.calcular(any())).thenReturn(BigDecimal.valueOf(8));
-
-        CalcularPreco calcularPreco = new CalcularPreco(imposto1, imposto2);
-        BigDecimal precoFinal = calcularPreco.calcularPrecoFinal(BigDecimal.valueOf(50));
-
-        verify(imposto1).calcular(BigDecimal.valueOf(50));
-        verify(imposto2).calcular(BigDecimal.valueOf(55));
-
-        //assertEquals(BigDecimal.valueOf(63), precoFinal, 0.01);
+        assertThrows(PrecoBaseException.class, () -> calcularPrecoSeguro.executar(null, SeguroCategoria.VIDA));
     }
 
-    @Test
-    void testCalcularPrecoFinalComImpostoNulo() {
-        Calculo imposto1 = mock(Calculo.class);
+    @ParameterizedTest
+    @EnumSource(SeguroCategoria.class)
+    void testExecutarComPrecoBaseValido(SeguroCategoria categoria) {
 
-        when(imposto1.calcular(any())).thenReturn(BigDecimal.valueOf(5));
+        when(calculoIOF.calcular(any(BigDecimal.class))).thenReturn(categoria.getIof());
+        when(calculoPIS.calcular(any(BigDecimal.class))).thenReturn(categoria.getPis());
+        when(calculoCOFINS.calcular(any(BigDecimal.class))).thenReturn(categoria.getCofins());
 
-        CalcularPreco calcularPreco = new CalcularPreco(imposto1, null);
-        BigDecimal precoFinal = calcularPreco.calcularPrecoFinal(BigDecimal.valueOf(50));
+        BigDecimal precoBase = BigDecimal.valueOf(100.0);
+        BigDecimal precoFinal = calcularPrecoSeguro.executar(precoBase, categoria);
 
-        verify(imposto1).calcular(BigDecimal.valueOf(50));
-
-        //assertEquals(55.0, precoFinal, 0.01);
+        BigDecimal expectedPrecoFinal = precoBase.multiply(BigDecimal.ONE.add(categoria.getIof()).add(categoria.getPis()).add(categoria.getCofins()));
+        assertEquals(expectedPrecoFinal, precoFinal);
     }
 }

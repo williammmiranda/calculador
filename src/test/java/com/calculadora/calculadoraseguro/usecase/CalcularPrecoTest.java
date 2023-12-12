@@ -1,6 +1,6 @@
 package com.calculadora.calculadoraseguro.usecase;
 
-import com.calculadora.calculadoraseguro.usecase.adapters.Calculo;
+import com.calculadora.calculadoraseguro.usecase.adapter.Calculo;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;

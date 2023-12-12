@@ -1,6 +1,6 @@
-package com.calculadora.calculadoraseguro.usecase.adapters.implemetation;
+package com.calculadora.calculadoraseguro.usecase.adapter.implemetation;
 
-import com.calculadora.calculadoraseguro.usecase.adapters.Calculo;
+import com.calculadora.calculadoraseguro.usecase.adapter.Calculo;
 
 import java.math.BigDecimal;
 

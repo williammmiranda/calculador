@@ -1,4 +1,4 @@
-package com.calculadora.calculadoraseguro.usecase.adapters;
+package com.calculadora.calculadoraseguro.usecase.adapter;
 
 
 import java.math.BigDecimal;

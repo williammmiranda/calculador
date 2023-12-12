@@ -1,8 +1,8 @@
 package com.calculadora.calculadoraseguro.usecase;
 
-import com.calculadora.calculadoraseguro.usecase.adapters.Calculo;
+        import com.calculadora.calculadoraseguro.usecase.adapter.Calculo;
 
-import java.math.BigDecimal;
+        import java.math.BigDecimal;
 
 public class CalcularPreco {
     private Calculo[] impostos;
