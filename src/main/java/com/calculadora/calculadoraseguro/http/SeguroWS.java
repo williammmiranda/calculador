@@ -10,6 +10,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+
 import static com.calculadora.calculadoraseguro.http.URLMapping.SEGURO;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -26,7 +28,8 @@ public class SeguroWS {
     @PostMapping
     @ApiOperation(value = "Cria um seguro novo")
     public ResponseEntity<?> criarSeguro(@RequestBody SeguroTO seguroRequest){
-        return ResponseEntity.ok().body(criarSeguro.executar(seguroRequest));
+        var seguroResponse = criarSeguro.executar(seguroRequest);
+        return ResponseEntity.created(URI.create("/api/seguros/" + seguroResponse.getId())).body(seguroResponse);
     }
 
 
