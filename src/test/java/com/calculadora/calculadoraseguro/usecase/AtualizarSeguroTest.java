@@ -37,7 +37,6 @@ class AtualizarSeguroTest {
 
     @Test
     void testExecutar() {
-        // Configuração do teste
         String id = "1";
         SeguroTO seguroTO = criarSeguroTO();
         SeguroEntity seguroEntity = criarSeguroEntity();
@@ -45,16 +44,33 @@ class AtualizarSeguroTest {
 
         when(seguroService.buscarSeguro(id)).thenReturn(seguroEntity);
         when(seguroCalculadoConverter.converterEntityToDTO(seguroEntity)).thenReturn(seguroCalculadoDTO);
-        when(calcularPrecoSeguro.executar(any(), any())).thenReturn(BigDecimal.TEN); // ajuste conforme necessário
+        when(calcularPrecoSeguro.executar(any(), any())).thenReturn(BigDecimal.TEN);
 
-        // Execução do método a ser testado
         SeguroCalculadoDTO resultado = atualizarSeguro.executar(seguroTO, id);
 
-        // Verificações
         verify(seguroService, times(1)).buscarSeguro(id);
         verify(seguroCalculadoConverter, times(1)).converterEntityToDTO(seguroEntity);
         verify(calcularPrecoSeguro, times(1)).executar(any(), any());
-        // Adicione mais verificações conforme necessário
+
+    }
+
+    @Test
+    void testExecutarParmetrosEntradaNulos() {
+        String id = "1";
+        SeguroTO seguroTO = new SeguroTO();
+        SeguroEntity seguroEntity = criarSeguroEntity();
+        SeguroCalculadoDTO seguroCalculadoDTO = criarSeguroCalculadoDTO();
+
+        when(seguroService.buscarSeguro(id)).thenReturn(seguroEntity);
+        when(seguroCalculadoConverter.converterEntityToDTO(seguroEntity)).thenReturn(seguroCalculadoDTO);
+        when(calcularPrecoSeguro.executar(any(), any())).thenReturn(BigDecimal.TEN);
+
+        SeguroCalculadoDTO resultado = atualizarSeguro.executar(seguroTO, id);
+
+        verify(seguroService, times(1)).buscarSeguro(id);
+        verify(seguroCalculadoConverter, times(1)).converterEntityToDTO(seguroEntity);
+        verify(calcularPrecoSeguro, times(1)).executar(any(), any());
+
     }
 
     private SeguroTO criarSeguroTO() {
