@@ -5,8 +5,7 @@ import com.calculadora.calculadoraseguro.gateway.entity.SeguroCategoria;
 import com.calculadora.calculadoraseguro.gateway.entity.SeguroEntity;
 import com.calculadora.calculadoraseguro.gateway.service.SeguroService;
 import com.calculadora.calculadoraseguro.http.domain.SeguroCalculadoDTO;
-import com.calculadora.calculadoraseguro.http.domain.SeguroTO;
-import com.calculadora.calculadoraseguro.usecase.CalcularPrecoSeguro;
+import com.calculadora.calculadoraseguro.http.domain.SeguroDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -40,18 +39,18 @@ public class CriarSeguroTest {
 
     @Test
     void testExecutar() {
-        SeguroTO seguroTO = criarSeguroTO();
+        SeguroDTO seguroDTO = criarSeguroTO();
         SeguroCalculadoDTO seguroCalculadoDTO = criarSeguroCalculadoDTO();
         SeguroEntity seguroEntity = new SeguroEntity();
 
-        when(calcularPrecoSeguro.executar(seguroTO.getPrecoBase(), seguroTO.getSeguroCategoria()))
-                .thenReturn(seguroTO.getPrecoBase().multiply(BigDecimal.valueOf(1.1)));
+        when(calcularPrecoSeguro.executar(seguroDTO.getPrecoBase(), seguroDTO.getSeguroCategoria()))
+                .thenReturn(seguroDTO.getPrecoBase().multiply(BigDecimal.valueOf(1.1)));
 
         when(seguroCalculadoConverter.convertDTOtoEntity(any())).thenReturn(seguroEntity);
         when(seguroService.salvarSeguro(any())).thenReturn(seguroEntity);
         when(seguroCalculadoConverter.converterEntityToDTO(any())).thenReturn(seguroCalculadoDTO);
 
-        SeguroCalculadoDTO resultado = criarSeguro.executar(seguroTO);
+        SeguroCalculadoDTO resultado = criarSeguro.executar(seguroDTO);
 
         assertEquals(seguroCalculadoDTO, resultado);
 
@@ -61,12 +60,12 @@ public class CriarSeguroTest {
         verify(seguroCalculadoConverter, times(1)).converterEntityToDTO(any());
     }
 
-    private static SeguroTO criarSeguroTO() {
-        SeguroTO seguroTO = new SeguroTO();
-        seguroTO.setNome("Seguro de Teste");
-        seguroTO.setSeguroCategoria(SeguroCategoria.AUTO);
-        seguroTO.setPrecoBase(BigDecimal.valueOf(100.0));
-        return seguroTO;
+    private static SeguroDTO criarSeguroTO() {
+        SeguroDTO seguroDTO = new SeguroDTO();
+        seguroDTO.setNome("Seguro de Teste");
+        seguroDTO.setSeguroCategoria(SeguroCategoria.AUTO);
+        seguroDTO.setPrecoBase(BigDecimal.valueOf(100.0));
+        return seguroDTO;
     }
 
     private static SeguroCalculadoDTO criarSeguroCalculadoDTO() {

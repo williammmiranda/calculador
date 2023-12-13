@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class SeguroCalculadoDTO extends SeguroTO{
+public class SeguroCalculadoDTO extends SeguroDTO {
     @ApiModelProperty(value = "UUID TRansacional", name = "id", dataType = "String", example = "8cfb5eb2-fd93-4322-bb74-c82f27c95a47")
     @JsonProperty("id")
     private String id;

@@ -5,7 +5,7 @@ import com.calculadora.calculadoraseguro.gateway.entity.SeguroEntity;
 import com.calculadora.calculadoraseguro.gateway.entity.SeguroCategoria;
 import com.calculadora.calculadoraseguro.gateway.service.SeguroService;
 import com.calculadora.calculadoraseguro.http.domain.SeguroCalculadoDTO;
-import com.calculadora.calculadoraseguro.http.domain.SeguroTO;
+import com.calculadora.calculadoraseguro.http.domain.SeguroDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -38,7 +38,7 @@ class AtualizarSeguroTest {
     @Test
     void testExecutar() {
         String id = "1";
-        SeguroTO seguroTO = criarSeguroTO();
+        SeguroDTO seguroDTO = criarSeguroTO();
         SeguroEntity seguroEntity = criarSeguroEntity();
         SeguroCalculadoDTO seguroCalculadoDTO = criarSeguroCalculadoDTO();
 
@@ -46,7 +46,7 @@ class AtualizarSeguroTest {
         when(seguroCalculadoConverter.converterEntityToDTO(seguroEntity)).thenReturn(seguroCalculadoDTO);
         when(calcularPrecoSeguro.executar(any(), any())).thenReturn(BigDecimal.TEN);
 
-        SeguroCalculadoDTO resultado = atualizarSeguro.executar(seguroTO, id);
+        SeguroCalculadoDTO resultado = atualizarSeguro.executar(seguroDTO, id);
 
         verify(seguroService, times(1)).buscarSeguro(id);
         verify(seguroCalculadoConverter, times(1)).converterEntityToDTO(seguroEntity);
@@ -57,7 +57,7 @@ class AtualizarSeguroTest {
     @Test
     void testExecutarParmetrosEntradaNulos() {
         String id = "1";
-        SeguroTO seguroTO = new SeguroTO();
+        SeguroDTO seguroDTO = new SeguroDTO();
         SeguroEntity seguroEntity = criarSeguroEntity();
         SeguroCalculadoDTO seguroCalculadoDTO = criarSeguroCalculadoDTO();
 
@@ -65,7 +65,7 @@ class AtualizarSeguroTest {
         when(seguroCalculadoConverter.converterEntityToDTO(seguroEntity)).thenReturn(seguroCalculadoDTO);
         when(calcularPrecoSeguro.executar(any(), any())).thenReturn(BigDecimal.TEN);
 
-        SeguroCalculadoDTO resultado = atualizarSeguro.executar(seguroTO, id);
+        SeguroCalculadoDTO resultado = atualizarSeguro.executar(seguroDTO, id);
 
         verify(seguroService, times(1)).buscarSeguro(id);
         verify(seguroCalculadoConverter, times(1)).converterEntityToDTO(seguroEntity);
@@ -73,12 +73,12 @@ class AtualizarSeguroTest {
 
     }
 
-    private SeguroTO criarSeguroTO() {
-        SeguroTO seguroTO = new SeguroTO();
-        seguroTO.setNome("Seguro de Teste");
-        seguroTO.setSeguroCategoria(SeguroCategoria.AUTO);
-        seguroTO.setPrecoBase(BigDecimal.valueOf(100.0));
-        return seguroTO;
+    private SeguroDTO criarSeguroTO() {
+        SeguroDTO seguroDTO = new SeguroDTO();
+        seguroDTO.setNome("Seguro de Teste");
+        seguroDTO.setSeguroCategoria(SeguroCategoria.AUTO);
+        seguroDTO.setPrecoBase(BigDecimal.valueOf(100.0));
+        return seguroDTO;
     }
 
     private SeguroEntity criarSeguroEntity() {

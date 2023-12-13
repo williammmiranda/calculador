@@ -1,7 +1,7 @@
 package com.calculadora.calculadoraseguro.http;
 
 import com.calculadora.calculadoraseguro.http.domain.SeguroCalculadoDTO;
-import com.calculadora.calculadoraseguro.http.domain.SeguroTO;
+import com.calculadora.calculadoraseguro.http.domain.SeguroDTO;
 import com.calculadora.calculadoraseguro.usecase.AtualizarSeguro;
 import com.calculadora.calculadoraseguro.usecase.BuscarSeguro;
 import com.calculadora.calculadoraseguro.usecase.CriarSeguro;
@@ -33,11 +33,11 @@ public class SeguroWS {
     @PostMapping
     @ApiOperation(value = "Cria um seguro novo")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Seguro criado com sucesso"),
+            @ApiResponse(code = 201, message = "Seguro criado com sucesso"),
             @ApiResponse(code = 400, message = "Preço Base não enviado para o calculo"),
             @ApiResponse(code = 500, message = "Erro ao criar o seguro")
     })
-    public ResponseEntity<SeguroCalculadoDTO> criarSeguro(@RequestBody SeguroTO seguroRequest){
+    public ResponseEntity<SeguroCalculadoDTO> criarSeguro(@RequestBody SeguroDTO seguroRequest){
         var seguroResponse = criarSeguro.executar(seguroRequest);
         return ResponseEntity.created(URI.create("/api/seguros/" + seguroResponse.getId())).body(seguroResponse);
     }
@@ -62,7 +62,7 @@ public class SeguroWS {
             @ApiResponse(code = 500, message = "Erro ao atualizar o seguro")
     })
     public ResponseEntity<SeguroCalculadoDTO> atualizarSeguro(@PathVariable String id,
-                                                              @RequestBody SeguroTO seguroRequest){
+                                                              @RequestBody SeguroDTO seguroRequest){
 
         return ResponseEntity.ok().body(atualizarSeguro.executar(seguroRequest, id));
     }

@@ -1,7 +1,6 @@
 package com.calculadora.calculadoraseguro.usecase;
 
 import com.calculadora.calculadoraseguro.gateway.converter.SeguroCalculadoConverter;
-import com.calculadora.calculadoraseguro.gateway.entity.SeguroCategoria;
 import com.calculadora.calculadoraseguro.gateway.entity.SeguroEntity;
 import com.calculadora.calculadoraseguro.gateway.service.SeguroService;
 import com.calculadora.calculadoraseguro.http.domain.SeguroCalculadoDTO;
@@ -10,8 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import java.math.BigDecimal;
 
 import static org.mockito.Mockito.*;
 
