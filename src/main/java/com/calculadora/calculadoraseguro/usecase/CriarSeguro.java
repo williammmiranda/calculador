@@ -6,16 +6,19 @@ import com.calculadora.calculadoraseguro.gateway.service.SeguroService;
 import com.calculadora.calculadoraseguro.http.domain.SeguroCalculadoDTO;
 import com.calculadora.calculadoraseguro.http.domain.SeguroTO;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class CriarSeguro {
     private final SeguroCalculadoConverter seguroCalculadoConverter;
     private final SeguroService seguroService;
     private final CalcularPrecoSeguro calcularPrecoSeguro;
 
     public SeguroCalculadoDTO executar(SeguroTO seguroTO) {
+        log.info("Entrou na classe Criar Seguro");
 
         var seguroCalculadoTO = gerarSeguroCalculadoTO(seguroTO);
 
@@ -25,6 +28,7 @@ public class CriarSeguro {
     }
 
     private SeguroCalculadoDTO gerarSeguroCalculadoTO(SeguroTO seguroTO){
+        log.info("Gerando Seguro Calculado DTO");
         var seguroCalculadoDTO = new SeguroCalculadoDTO();
         seguroCalculadoDTO.setNome(seguroTO.getNome());
         seguroCalculadoDTO.setSeguroCategoria(seguroTO.getSeguroCategoria());

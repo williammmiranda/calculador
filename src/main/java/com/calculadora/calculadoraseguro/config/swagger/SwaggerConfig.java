@@ -1,4 +1,4 @@
-package com.calculadora.calculadoraseguro.config;
+package com.calculadora.calculadoraseguro.config.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,6 +1,5 @@
 package com.calculadora.calculadoraseguro.http;
 
-import com.calculadora.calculadoraseguro.exception.SeguroNotFoundException;
 import com.calculadora.calculadoraseguro.http.domain.SeguroCalculadoDTO;
 import com.calculadora.calculadoraseguro.http.domain.SeguroTO;
 import com.calculadora.calculadoraseguro.usecase.AtualizarSeguro;
@@ -33,6 +32,11 @@ public class SeguroWS {
 
     @PostMapping
     @ApiOperation(value = "Cria um seguro novo")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Seguro criado com sucesso"),
+            @ApiResponse(code = 400, message = "Preço Base não enviado para o calculo"),
+            @ApiResponse(code = 500, message = "Erro ao criar o seguro")
+    })
     public ResponseEntity<SeguroCalculadoDTO> criarSeguro(@RequestBody SeguroTO seguroRequest){
         var seguroResponse = criarSeguro.executar(seguroRequest);
         return ResponseEntity.created(URI.create("/api/seguros/" + seguroResponse.getId())).body(seguroResponse);
@@ -53,6 +57,10 @@ public class SeguroWS {
 
     @PutMapping(value = "/{id}")
     @ApiOperation(value = "Atualiza informações de um seguro")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Seguro atualizado com sucesso"),
+            @ApiResponse(code = 500, message = "Erro ao atualizar o seguro")
+    })
     public ResponseEntity<SeguroCalculadoDTO> atualizarSeguro(@PathVariable String id,
                                                               @RequestBody SeguroTO seguroRequest){
 
@@ -67,14 +75,8 @@ public class SeguroWS {
             @ApiResponse(code = 500, message = "Erro ao excluir o seguro")
     })
     public ResponseEntity<String> excluirSeguro(@PathVariable String id) {
-        try {
-            excluirSeguro.executar(id);
-            return ResponseEntity.ok("Seguro excluído com sucesso");
-        } catch (SeguroNotFoundException e) {
-            return ResponseEntity.status(404).body("Seguro não encontrado");
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body("Erro ao excluir o seguro");
-        }
+        excluirSeguro.executar(id);
+        return ResponseEntity.ok("Seguro excluído com sucesso");
     }
 
 }

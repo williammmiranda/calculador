@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 public class SeguroTO {
-    @ApiModelProperty(value = "Nome do Seguro", name = "id", dataType = "String", example = "Seguro de Vida Individual")
+    @ApiModelProperty(value = "Nome do Seguro", name = "nome", dataType = "String", example = "Seguro de Vida Individual")
     @JsonProperty("nome")
     private String nome;
 
