@@ -1,5 +1,6 @@
 package com.calculadora.calculadoraseguro.gateway.service;
 
+import com.calculadora.calculadoraseguro.exception.SeguroNotFoundException;
 import com.calculadora.calculadoraseguro.gateway.entity.SeguroEntity;
 import com.calculadora.calculadoraseguro.gateway.repository.SeguroRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +16,12 @@ public class SeguroService {
     }
 
     public SeguroEntity buscarSeguro(String id) {
-        return seguroRepository.findById(id).orElseThrow();
+        return seguroRepository.findById(id)
+                .orElseThrow(() -> new SeguroNotFoundException("Seguro não encontrado com o ID: " + id));
+    }
+
+    public void excluirSeguro(String id) {
+        seguroRepository.deleteById(id);
     }
 
 }

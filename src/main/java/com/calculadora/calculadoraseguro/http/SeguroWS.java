@@ -1,11 +1,16 @@
 package com.calculadora.calculadoraseguro.http;
 
+import com.calculadora.calculadoraseguro.exception.SeguroNotFoundException;
+import com.calculadora.calculadoraseguro.http.domain.SeguroCalculadoDTO;
 import com.calculadora.calculadoraseguro.http.domain.SeguroTO;
 import com.calculadora.calculadoraseguro.usecase.AtualizarSeguro;
 import com.calculadora.calculadoraseguro.usecase.BuscarSeguro;
 import com.calculadora.calculadoraseguro.usecase.CriarSeguro;
+import com.calculadora.calculadoraseguro.usecase.ExcluirSeguro;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,10 +29,11 @@ public class SeguroWS {
     private final CriarSeguro criarSeguro;
     private final BuscarSeguro buscarSeguro;
     private final AtualizarSeguro atualizarSeguro;
+    private final ExcluirSeguro excluirSeguro;
 
     @PostMapping
     @ApiOperation(value = "Cria um seguro novo")
-    public ResponseEntity<?> criarSeguro(@RequestBody SeguroTO seguroRequest){
+    public ResponseEntity<SeguroCalculadoDTO> criarSeguro(@RequestBody SeguroTO seguroRequest){
         var seguroResponse = criarSeguro.executar(seguroRequest);
         return ResponseEntity.created(URI.create("/api/seguros/" + seguroResponse.getId())).body(seguroResponse);
     }
@@ -35,16 +41,40 @@ public class SeguroWS {
 
     @GetMapping(value = "/{id}")
     @ApiOperation(value = "Buscar Seguro pelo id")
-    public ResponseEntity<?>  buscarSeguroPorId(@PathVariable String id){
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Seguro encontrado com sucesso"),
+            @ApiResponse(code = 404, message = "Seguro não encontrado"),
+            @ApiResponse(code = 500, message = "Erro ao buscar o seguro")
+    })
+    public ResponseEntity<SeguroCalculadoDTO>  buscarSeguroPorId(@PathVariable String id){
         return ResponseEntity.ok().body(buscarSeguro.executar(id));
     }
 
 
     @PutMapping(value = "/{id}")
     @ApiOperation(value = "Atualiza informações de um seguro")
-    public ResponseEntity<?> atualizarSeguro(@PathVariable String id,
-                                             @RequestBody SeguroTO seguroRequest){
+    public ResponseEntity<SeguroCalculadoDTO> atualizarSeguro(@PathVariable String id,
+                                                              @RequestBody SeguroTO seguroRequest){
+
         return ResponseEntity.ok().body(atualizarSeguro.executar(seguroRequest, id));
+    }
+
+    @DeleteMapping(value = "/{id}")
+    @ApiOperation(value = "Excluí o seguro por ID")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Seguro excluído com sucesso"),
+            @ApiResponse(code = 404, message = "Seguro não encontrado"),
+            @ApiResponse(code = 500, message = "Erro ao excluir o seguro")
+    })
+    public ResponseEntity<String> excluirSeguro(@PathVariable String id) {
+        try {
+            excluirSeguro.executar(id);
+            return ResponseEntity.ok("Seguro excluído com sucesso");
+        } catch (SeguroNotFoundException e) {
+            return ResponseEntity.status(404).body("Seguro não encontrado");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Erro ao excluir o seguro");
+        }
     }
 
 }
