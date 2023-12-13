@@ -46,7 +46,7 @@ public class CriarSeguroTest {
         when(calcularPrecoSeguro.executar(seguroDTO.getPrecoBase(), seguroDTO.getSeguroCategoria()))
                 .thenReturn(seguroDTO.getPrecoBase().multiply(BigDecimal.valueOf(1.1)));
 
-        when(seguroCalculadoConverter.convertDTOtoEntity(any())).thenReturn(seguroEntity);
+        when(seguroCalculadoConverter.convertDTOtoEntity(any(), any(), any())).thenReturn(seguroEntity);
         when(seguroService.salvarSeguro(any())).thenReturn(seguroEntity);
         when(seguroCalculadoConverter.converterEntityToDTO(any())).thenReturn(seguroCalculadoDTO);
 
@@ -55,7 +55,7 @@ public class CriarSeguroTest {
         assertEquals(seguroCalculadoDTO, resultado);
 
         verify(calcularPrecoSeguro, times(1)).executar(any(), any());
-        verify(seguroCalculadoConverter, times(1)).convertDTOtoEntity(any());
+        verify(seguroCalculadoConverter, times(1)).convertDTOtoEntity(any(), any(), any());
         verify(seguroService, times(1)).salvarSeguro(any());
         verify(seguroCalculadoConverter, times(1)).converterEntityToDTO(any());
     }

@@ -5,10 +5,12 @@ import com.calculadora.calculadoraseguro.http.domain.SeguroCalculadoDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 @Slf4j
 public class SeguroCalculadoConverter {
-    public SeguroEntity convertDTOtoEntity(SeguroCalculadoDTO seguroCalculadoDTO) {
+    public SeguroEntity convertDTOtoEntity(SeguroCalculadoDTO seguroCalculadoDTO, LocalDateTime dataInclusacao, LocalDateTime dataAlteracao) {
         log.info("Convertendo DTO em Entity do Seguro");
         SeguroEntity seguroEntity = new SeguroEntity();
         seguroEntity.setId(seguroCalculadoDTO.getId());
@@ -16,6 +18,8 @@ public class SeguroCalculadoConverter {
         seguroEntity.setCategoria(seguroCalculadoDTO.getSeguroCategoria());
         seguroEntity.setPrecoBase(seguroCalculadoDTO.getPrecoBase());
         seguroEntity.setPrecoTarifado(seguroCalculadoDTO.getPrecoTarifado());
+        seguroEntity.setDataInclusao(dataInclusacao);
+        seguroEntity.setDataAlteracao(dataAlteracao);
         return seguroEntity;
     }
 

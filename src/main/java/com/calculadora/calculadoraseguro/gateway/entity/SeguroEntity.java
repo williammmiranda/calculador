@@ -8,6 +8,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "SEGURO")
@@ -36,5 +37,9 @@ public class SeguroEntity {
     @Column(name = "preco_tarifado")
     private BigDecimal precoTarifado;
 
+    @Column(name = "data_inclusao")
+    private LocalDateTime dataInclusao;
 
+    @Column(name = "data_alteracao")
+    private LocalDateTime dataAlteracao     ;
 }

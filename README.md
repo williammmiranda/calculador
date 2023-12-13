@@ -44,3 +44,5 @@ Visto que se tratava de um calculo para seguros foi premissa que um gerenciament
 Por se tratar de um projeto teste não considerei a inclusão de mais de um serviço de atualização sendo assim é possível atualizar os mesmos campos no serviço do POST. Essa premissa também foi adotada para a busca onde eu considerei apenas a busca por ID.
 
 Para o retorno das APIs também foi considerado o formato e nomes dos campos fornecido na documentação.
+
+Por se tratara de um projeto teste também não foi implementado nenhum tipo de autenticação.

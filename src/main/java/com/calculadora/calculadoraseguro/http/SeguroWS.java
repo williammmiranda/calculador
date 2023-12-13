@@ -50,8 +50,9 @@ public class SeguroWS {
             @ApiResponse(code = 404, message = "Seguro não encontrado"),
             @ApiResponse(code = 500, message = "Erro ao buscar o seguro")
     })
-    public ResponseEntity<SeguroCalculadoDTO>  buscarSeguroPorId(@PathVariable String id){
-        return ResponseEntity.ok().body(buscarSeguro.executar(id));
+    public SeguroCalculadoDTO  buscarSeguroPorId(@PathVariable String id){
+        //return ResponseEntity.ok().body(buscarSeguro.executar(id));
+        return buscarSeguro.executar(id);
     }
 
 

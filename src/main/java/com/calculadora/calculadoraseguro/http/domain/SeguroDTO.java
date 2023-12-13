@@ -8,6 +8,8 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.math.BigDecimal;
 
 @Data
@@ -19,6 +21,7 @@ public class SeguroDTO {
 
     @ApiModelProperty(value = "Categoria do seguro", name = "categoria", example = "VIDA")
     @JsonProperty("categoria")
+    @Enumerated(EnumType.STRING)
     private SeguroCategoria seguroCategoria;
 
     @ApiModelProperty(value = "Preço do Seguro antes das tarifas", name = "preco_base", dataType = "Double", example = "100.00")

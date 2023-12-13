@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @AllArgsConstructor
 @Slf4j
@@ -19,11 +21,12 @@ public class AtualizarSeguro {
 
     public SeguroCalculadoDTO executar(SeguroDTO seguroDTO, String id) {
         log.info("Entrou na Classe de Atualizar o Seguro com id: {}", id);
-        var seguroCalculadoTO = converterSeguroEntityParaCalculadoTO(seguroService.buscarSeguro(id));
+        var seguroBuscaEntity = seguroService.buscarSeguro(id);
+        var seguroCalculadoTO = converterSeguroEntityParaCalculadoTO(seguroBuscaEntity);
 
         preencherSeguroTO(seguroDTO, seguroCalculadoTO);
 
-        var seguroEntity = salvarSeguro(seguroCalculadoTO);
+        var seguroEntity = salvarSeguro(seguroCalculadoTO, seguroBuscaEntity.getDataInclusao());
 
         return converterSeguroEntityParaCalculadoTO(seguroEntity);
     }
@@ -37,8 +40,8 @@ public class AtualizarSeguro {
 
     }
 
-    private SeguroEntity salvarSeguro(SeguroCalculadoDTO seguroCalculadoDTO) {
-        return seguroService.salvarSeguro(seguroCalculadoConverter.convertDTOtoEntity(seguroCalculadoDTO));
+    private SeguroEntity salvarSeguro(SeguroCalculadoDTO seguroCalculadoDTO, LocalDateTime dataInclusao) {
+        return seguroService.salvarSeguro(seguroCalculadoConverter.convertDTOtoEntity(seguroCalculadoDTO, dataInclusao, LocalDateTime.now()));
     }
 
     private SeguroCalculadoDTO converterSeguroEntityParaCalculadoTO(SeguroEntity seguroEntity) {
