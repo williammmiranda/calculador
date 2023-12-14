@@ -4,8 +4,13 @@ Este foi criado para criar uma calculadora que calcula o preço de seguros se ba
 
 ## Como Iniciar
 
+Como pré-requisito:
+2. Ter o SDK do Java 11 instalado
+
+Passos para execução:
+
 1. Clone o repositório: `git clone git@github.com:williammmiranda/calculadora-seguro.git`
-2. Navegue até o diretório do projeto: `cd ../calculadora-seguro/target/`
+2. Navegue até o diretório do projeto: `cd ../calculadora-seguro`
 3. Execute o aplicativo: `java -jar calculadora-seguro-0.0.1.jar`
 4. Acesse o swagger do projeto para execução local [aqui](http://localhost:8080/swagger-ui/)
 
