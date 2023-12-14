@@ -37,6 +37,7 @@ Para os logs foi usado o Sl4j documentando os passos de execução para caso alg
 
 ### Trace
 
+Para os traces esta sendo utilizado o Spring Cloud Sleuth e gerando um arquivo de log no nível de INFO. Este arquivo pode ser visto dentro da pasta logs/sleuth.log do projeto.
 
 ### Metricas
 
