@@ -5,7 +5,7 @@ Este foi criado para criar uma calculadora que calcula o preço de seguros se ba
 ## Como Iniciar
 
 Como pré-requisito:
-2. Ter o SDK do Java 11 instalado
+1. Ter o SDK do Java 11 instalado
 
 Passos para execução:
 
