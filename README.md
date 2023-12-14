@@ -37,6 +37,17 @@ Para os logs foi usado o Sl4j documentando os passos de execução para caso alg
 
 ### Trace
 
+
+### Metricas
+
+Para as métricas foi utilizado o Micrometer que podem ser acessadas nessa lista
+1. POST: `curl --location --request GET 'http://localhost:8080/actuator/metrics/criarSeguro'`
+2. PUT: `curl --location --request GET 'http://localhost:8080/actuator/metrics/atualizarSeguro'`
+3. GET: `curl --location --request GET 'http://localhost:8080/actuator/metrics/buscarSeguroPorId'`
+4. DELETE: `curl --location --request GET 'http://localhost:8080/actuator/metrics/excluirSeguro'`
+
+Observação as métricas só são acessíveis após a execução dos endpoints
+
 ## Premissas assumidas
 
 Visto que se tratava de um calculo para seguros foi premissa que um gerenciamento simples precisava ser feita.

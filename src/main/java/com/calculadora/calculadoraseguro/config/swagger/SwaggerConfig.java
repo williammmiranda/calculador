@@ -17,7 +17,8 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("com.calculadora.calculadoraseguro.http"))
+                .paths(PathSelectors.ant("/api/**"))
                 .paths(PathSelectors.regex("/error.*").negate())
                 .build()
                 .apiInfo(apiInfo())
