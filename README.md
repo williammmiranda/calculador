@@ -6,7 +6,7 @@ Este foi criado para criar uma calculadora que calcula o preço de seguros se ba
 
 1. Clone o repositório: `git clone git@github.com:williammmiranda/calculadora-seguro.git`
 2. Navegue até o diretório do projeto: `cd ../calculadora-seguro/target/`
-3. Execute o aplicativo: `java -jar calculadora-seguro-0.0.1-SNAPSHOT.jar`
+3. Execute o aplicativo: `java -jar calculadora-seguro-0.0.1.jar`
 4. Acesse o swagger do projeto para execução local [aqui](http://localhost:8080/swagger-ui/)
 
 ## Solução do projeto
@@ -15,7 +15,7 @@ Este foi criado para criar uma calculadora que calcula o preço de seguros se ba
 
 Para fazer o projeto foi feito um CRUD que consiste no gerenciamento do cadastro de seguros. 
 
-A funcionalidade core do projeto é o calculo do preço final do mesmo que envolve impostos, para isso foi feito um tratamento para que de forma simples novas categorias de seguro possam ser incluídas assim como novos impostos sem a necessidade de muitas horas de desenvolvimento.
+A funcionalidade core do projeto é o calculo do preço final do seguro. O desenvolvimento foi feito forma que de uma forma simples novas categorias de seguro possam ser incluídas assim como novos impostos sem afetar serviços já existentes e com o mínimo de esforço possível.
 
 ### Organização
 

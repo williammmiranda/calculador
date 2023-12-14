@@ -39,3 +39,179 @@
 2023-12-13 22:01:20.622  INFO [,,] 6004 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-12-13 22:01:20.670  INFO [,,] 6004 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-12-13 22:01:20.699  INFO [,,] 6004 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-12-13 22:07:22.054  INFO [,,] 7205 --- [main] c.c.calculadoraseguro.http.SeguroWSTest  : Starting SeguroWSTest using Java 11.0.6 on MBP-de-William with PID 7205 (started by wmiranda in /Users/wmiranda/Projetos/Workspace/calculadora-seguro)
+2023-12-13 22:07:22.056  INFO [,,] 7205 --- [main] c.c.calculadoraseguro.http.SeguroWSTest  : No active profile set, falling back to 1 default profile: "default"
+2023-12-13 22:07:25.064  INFO [,,] 7205 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-13 22:07:25.211  INFO [,,] 7205 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 117 ms. Found 1 JPA repository interfaces.
+2023-12-13 22:07:26.138  INFO [,,] 7205 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=4f749adb-01cc-3504-9b91-ca6b34d76d85
+2023-12-13 22:07:28.371  INFO [,,] 7205 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-12-13 22:07:28.407  INFO [,,] 7205 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-13 22:07:28.408  INFO [,,] 7205 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-12-13 22:07:28.801  INFO [,,] 7205 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-13 22:07:28.801  INFO [,,] 7205 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6664 ms
+2023-12-13 22:07:29.410  INFO [,,] 7205 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-13 22:07:30.364  INFO [,,] 7205 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-13 22:07:30.429  INFO [,,] 7205 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/segurodb'
+2023-12-13 22:07:32.721  INFO [,,] 7205 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-13 22:07:32.956  INFO [,,] 7205 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-12-13 22:07:33.592  INFO [,,] 7205 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-12-13 22:07:35.278  INFO [,,] 7205 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-12-13 22:07:41.115  INFO [,,] 7205 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-12-13 22:07:41.224  INFO [,,] 7205 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-13 22:07:44.009  WARN [,,] 7205 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-13 22:07:44.420  INFO [,,] 7205 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-12-13 22:07:47.745  INFO [,,] 7205 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 50038 (http) with context path ''
+2023-12-13 22:07:48.427  INFO [,,] 7205 --- [main] c.c.calculadoraseguro.http.SeguroWSTest  : Started SeguroWSTest in 27.544 seconds (JVM running for 31.047)
+2023-12-13 22:07:49.861  INFO [,57a1a07a201706a4,57a1a07a201706a4] 7205 --- [http-nio-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-13 22:07:49.862  INFO [,57a1a07a201706a4,57a1a07a201706a4] 7205 --- [http-nio-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-12-13 22:07:49.867  INFO [,57a1a07a201706a4,57a1a07a201706a4] 7205 --- [http-nio-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-12-13 22:07:49.994  INFO [,57a1a07a201706a4,57a1a07a201706a4] 7205 --- [http-nio-auto-1-exec-1] c.c.c.usecase.ExcluirSeguro              : Entrou na classe Excluir Seguro
+2023-12-13 22:07:49.995  INFO [,57a1a07a201706a4,57a1a07a201706a4] 7205 --- [http-nio-auto-1-exec-1] c.c.c.gateway.service.SeguroService      : Buscar Seguro com id: 0fc13533-4d6c-4fac-a5b4-e4a8fb213377
+2023-12-13 22:07:50.061  INFO [,57a1a07a201706a4,57a1a07a201706a4] 7205 --- [http-nio-auto-1-exec-1] c.c.c.gateway.service.SeguroService      : Excluir Seguro com id: 0fc13533-4d6c-4fac-a5b4-e4a8fb213377
+2023-12-13 22:07:50.779  INFO [,a29453c69433fee5,a29453c69433fee5] 7205 --- [http-nio-auto-1-exec-2] c.c.c.usecase.CriarSeguro                : Entrou na classe Criar Seguro
+2023-12-13 22:07:50.781  INFO [,a29453c69433fee5,a29453c69433fee5] 7205 --- [http-nio-auto-1-exec-2] c.c.c.usecase.CriarSeguro                : Gerando Seguro Calculado DTO
+2023-12-13 22:07:50.784  INFO [,a29453c69433fee5,a29453c69433fee5] 7205 --- [http-nio-auto-1-exec-2] c.c.c.usecase.CalcularPrecoSeguro        : Calcular o Preço do Seguro
+2023-12-13 22:07:50.798  INFO [,a29453c69433fee5,a29453c69433fee5] 7205 --- [http-nio-auto-1-exec-2] c.c.c.u.a.implemetation.CalculoIOF       : Calcular o Preço do IOF do Seguro
+2023-12-13 22:07:50.799  INFO [,a29453c69433fee5,a29453c69433fee5] 7205 --- [http-nio-auto-1-exec-2] c.c.c.u.a.implemetation.CalculoPIS       : Calcular o Preço do PIS do Seguro
+2023-12-13 22:07:50.800  INFO [,a29453c69433fee5,a29453c69433fee5] 7205 --- [http-nio-auto-1-exec-2] c.c.c.u.a.implemetation.CalculoCOFINS    : Calcular o Preço do CONFINNS do Seguro
+2023-12-13 22:07:50.803  INFO [,a29453c69433fee5,a29453c69433fee5] 7205 --- [http-nio-auto-1-exec-2] c.c.c.g.c.SeguroCalculadoConverter       : Convertendo DTO em Entity do Seguro
+2023-12-13 22:07:50.804  INFO [,a29453c69433fee5,a29453c69433fee5] 7205 --- [http-nio-auto-1-exec-2] c.c.c.gateway.service.SeguroService      : Salvar Seguro
+2023-12-13 22:07:50.819  INFO [,a29453c69433fee5,a29453c69433fee5] 7205 --- [http-nio-auto-1-exec-2] c.c.c.g.c.SeguroCalculadoConverter       : Convertendo retorno da Busca do Seguro
+2023-12-13 22:07:50.905  INFO [,b305addcfd7b5cd5,b305addcfd7b5cd5] 7205 --- [http-nio-auto-1-exec-3] c.c.c.usecase.AtualizarSeguro            : Entrou na Classe de Atualizar o Seguro com id: 154604e4-e964-4c0c-9880-155537124b42
+2023-12-13 22:07:50.905  INFO [,b305addcfd7b5cd5,b305addcfd7b5cd5] 7205 --- [http-nio-auto-1-exec-3] c.c.c.gateway.service.SeguroService      : Buscar Seguro com id: 154604e4-e964-4c0c-9880-155537124b42
+2023-12-13 22:07:50.910  INFO [,b305addcfd7b5cd5,b305addcfd7b5cd5] 7205 --- [http-nio-auto-1-exec-3] c.c.c.g.c.SeguroCalculadoConverter       : Convertendo retorno da Busca do Seguro
+2023-12-13 22:07:50.912  INFO [,b305addcfd7b5cd5,b305addcfd7b5cd5] 7205 --- [http-nio-auto-1-exec-3] c.c.c.usecase.AtualizarSeguro            : Valida envio valores na Classe de Atualizar o Seguro com id
+2023-12-13 22:07:50.912  INFO [,b305addcfd7b5cd5,b305addcfd7b5cd5] 7205 --- [http-nio-auto-1-exec-3] c.c.c.usecase.CalcularPrecoSeguro        : Calcular o Preço do Seguro
+2023-12-13 22:07:50.912  INFO [,b305addcfd7b5cd5,b305addcfd7b5cd5] 7205 --- [http-nio-auto-1-exec-3] c.c.c.u.a.implemetation.CalculoIOF       : Calcular o Preço do IOF do Seguro
+2023-12-13 22:07:50.913  INFO [,b305addcfd7b5cd5,b305addcfd7b5cd5] 7205 --- [http-nio-auto-1-exec-3] c.c.c.u.a.implemetation.CalculoPIS       : Calcular o Preço do PIS do Seguro
+2023-12-13 22:07:50.913  INFO [,b305addcfd7b5cd5,b305addcfd7b5cd5] 7205 --- [http-nio-auto-1-exec-3] c.c.c.u.a.implemetation.CalculoCOFINS    : Calcular o Preço do CONFINNS do Seguro
+2023-12-13 22:07:50.913  INFO [,b305addcfd7b5cd5,b305addcfd7b5cd5] 7205 --- [http-nio-auto-1-exec-3] c.c.c.g.c.SeguroCalculadoConverter       : Convertendo DTO em Entity do Seguro
+2023-12-13 22:07:50.913  INFO [,b305addcfd7b5cd5,b305addcfd7b5cd5] 7205 --- [http-nio-auto-1-exec-3] c.c.c.gateway.service.SeguroService      : Salvar Seguro
+2023-12-13 22:07:50.925  INFO [,b305addcfd7b5cd5,b305addcfd7b5cd5] 7205 --- [http-nio-auto-1-exec-3] c.c.c.g.c.SeguroCalculadoConverter       : Convertendo retorno da Busca do Seguro
+2023-12-13 22:07:50.982  INFO [,c50985c898a1aa3a,c50985c898a1aa3a] 7205 --- [http-nio-auto-1-exec-4] c.c.c.usecase.BuscarSeguro               : Entrou na Classe Buscar Seguro
+2023-12-13 22:07:50.982  INFO [,c50985c898a1aa3a,c50985c898a1aa3a] 7205 --- [http-nio-auto-1-exec-4] c.c.c.gateway.service.SeguroService      : Buscar Seguro com id: 4896083a-8b84-4e7e-9683-be6c03325146
+2023-12-13 22:07:50.988  INFO [,c50985c898a1aa3a,c50985c898a1aa3a] 7205 --- [http-nio-auto-1-exec-4] c.c.c.g.c.SeguroCalculadoConverter       : Convertendo retorno da Busca do Seguro
+2023-12-13 22:07:51.380  INFO [,,] 7205 --- [main] c.c.c.usecase.ExcluirSeguro              : Entrou na classe Excluir Seguro
+2023-12-13 22:07:51.728  INFO [,,] 7205 --- [main] c.c.c.usecase.CriarSeguro                : Entrou na classe Criar Seguro
+2023-12-13 22:07:51.731  INFO [,,] 7205 --- [main] c.c.c.usecase.CriarSeguro                : Gerando Seguro Calculado DTO
+2023-12-13 22:07:51.763  INFO [,,] 7205 --- [main] c.c.c.usecase.AtualizarSeguro            : Entrou na Classe de Atualizar o Seguro com id: 1
+2023-12-13 22:07:51.769  INFO [,,] 7205 --- [main] c.c.c.usecase.AtualizarSeguro            : Valida envio valores na Classe de Atualizar o Seguro com id
+2023-12-13 22:07:51.792  INFO [,,] 7205 --- [main] c.c.c.usecase.AtualizarSeguro            : Entrou na Classe de Atualizar o Seguro com id: 1
+2023-12-13 22:07:51.793  INFO [,,] 7205 --- [main] c.c.c.usecase.AtualizarSeguro            : Valida envio valores na Classe de Atualizar o Seguro com id
+2023-12-13 22:07:51.902  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoPIS       : Calcular o Preço do PIS do Seguro
+2023-12-13 22:07:51.908  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoCOFINS    : Calcular o Preço do CONFINNS do Seguro
+2023-12-13 22:07:51.943  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoIOF       : Calcular o Preço do IOF do Seguro
+2023-12-13 22:07:51.998  INFO [,,] 7205 --- [main] c.c.c.usecase.BuscarSeguro               : Entrou na Classe Buscar Seguro
+2023-12-13 22:07:52.204  INFO [,,] 7205 --- [main] c.c.c.usecase.CalcularPrecoSeguro        : Calcular o Preço do Seguro
+2023-12-13 22:07:52.204 ERROR [,,] 7205 --- [main] c.c.c.usecase.CalcularPrecoSeguro        : Preço Base do Seguro não enviado
+2023-12-13 22:07:52.429  INFO [,,] 7205 --- [main] c.c.c.usecase.CalcularPrecoSeguro        : Calcular o Preço do Seguro
+2023-12-13 22:07:52.443  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoIOF       : Calcular o Preço do IOF do Seguro
+2023-12-13 22:07:52.448  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoPIS       : Calcular o Preço do PIS do Seguro
+2023-12-13 22:07:52.473  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoCOFINS    : Calcular o Preço do CONFINNS do Seguro
+2023-12-13 22:07:52.497  INFO [,,] 7205 --- [main] c.c.c.usecase.CalcularPrecoSeguro        : Calcular o Preço do Seguro
+2023-12-13 22:07:52.498  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoIOF       : Calcular o Preço do IOF do Seguro
+2023-12-13 22:07:52.499  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoPIS       : Calcular o Preço do PIS do Seguro
+2023-12-13 22:07:52.499  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoCOFINS    : Calcular o Preço do CONFINNS do Seguro
+2023-12-13 22:07:52.509  INFO [,,] 7205 --- [main] c.c.c.usecase.CalcularPrecoSeguro        : Calcular o Preço do Seguro
+2023-12-13 22:07:52.519  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoIOF       : Calcular o Preço do IOF do Seguro
+2023-12-13 22:07:52.522  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoPIS       : Calcular o Preço do PIS do Seguro
+2023-12-13 22:07:52.523  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoCOFINS    : Calcular o Preço do CONFINNS do Seguro
+2023-12-13 22:07:52.529  INFO [,,] 7205 --- [main] c.c.c.usecase.CalcularPrecoSeguro        : Calcular o Preço do Seguro
+2023-12-13 22:07:52.530  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoIOF       : Calcular o Preço do IOF do Seguro
+2023-12-13 22:07:52.530  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoPIS       : Calcular o Preço do PIS do Seguro
+2023-12-13 22:07:52.530  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoCOFINS    : Calcular o Preço do CONFINNS do Seguro
+2023-12-13 22:07:52.547  INFO [,,] 7205 --- [main] c.c.c.usecase.CalcularPrecoSeguro        : Calcular o Preço do Seguro
+2023-12-13 22:07:52.548  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoIOF       : Calcular o Preço do IOF do Seguro
+2023-12-13 22:07:52.550  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoPIS       : Calcular o Preço do PIS do Seguro
+2023-12-13 22:07:52.550  INFO [,,] 7205 --- [main] c.c.c.u.a.implemetation.CalculoCOFINS    : Calcular o Preço do CONFINNS do Seguro
+2023-12-13 22:07:53.094  INFO [,,] 7205 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-13 22:07:53.120  INFO [,,] 7205 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-12-13 22:07:53.127  INFO [,,] 7205 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-12-13 22:09:11.013  INFO [,,] 7493 --- [main] c.c.calculadoraseguro.http.SeguroWSTest  : Starting SeguroWSTest using Java 11.0.6 on MBP-de-William with PID 7493 (started by wmiranda in /Users/wmiranda/Projetos/Workspace/calculadora-seguro)
+2023-12-13 22:09:11.016  INFO [,,] 7493 --- [main] c.c.calculadoraseguro.http.SeguroWSTest  : No active profile set, falling back to 1 default profile: "default"
+2023-12-13 22:09:13.883  INFO [,,] 7493 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-13 22:09:14.007  INFO [,,] 7493 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 89 ms. Found 1 JPA repository interfaces.
+2023-12-13 22:09:14.858  INFO [,,] 7493 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=4f749adb-01cc-3504-9b91-ca6b34d76d85
+2023-12-13 22:09:16.983  INFO [,,] 7493 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-12-13 22:09:17.012  INFO [,,] 7493 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-13 22:09:17.012  INFO [,,] 7493 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-12-13 22:09:17.356  INFO [,,] 7493 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-13 22:09:17.356  INFO [,,] 7493 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6265 ms
+2023-12-13 22:09:17.981  INFO [,,] 7493 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-13 22:09:18.859  INFO [,,] 7493 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-13 22:09:18.893  INFO [,,] 7493 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/segurodb'
+2023-12-13 22:09:20.482  INFO [,,] 7493 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-13 22:09:20.831  INFO [,,] 7493 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-12-13 22:09:21.402  INFO [,,] 7493 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-12-13 22:09:21.882  INFO [,,] 7493 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-12-13 22:09:23.677  INFO [,,] 7493 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-12-13 22:09:23.700  INFO [,,] 7493 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-13 22:09:25.741  WARN [,,] 7493 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-13 22:09:26.181  INFO [,,] 7493 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-12-13 22:09:29.084  INFO [,,] 7493 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 50053 (http) with context path ''
+2023-12-13 22:09:29.612  INFO [,,] 7493 --- [main] c.c.calculadoraseguro.http.SeguroWSTest  : Started SeguroWSTest in 19.663 seconds (JVM running for 23.265)
+2023-12-13 22:09:30.463  INFO [,7aa315c470259660,7aa315c470259660] 7493 --- [http-nio-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-13 22:09:30.465  INFO [,7aa315c470259660,7aa315c470259660] 7493 --- [http-nio-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-12-13 22:09:30.469  INFO [,7aa315c470259660,7aa315c470259660] 7493 --- [http-nio-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2023-12-13 22:09:30.569  INFO [,7aa315c470259660,7aa315c470259660] 7493 --- [http-nio-auto-1-exec-1] c.c.c.usecase.ExcluirSeguro              : Entrou na classe Excluir Seguro
+2023-12-13 22:09:30.569  INFO [,7aa315c470259660,7aa315c470259660] 7493 --- [http-nio-auto-1-exec-1] c.c.c.gateway.service.SeguroService      : Buscar Seguro com id: ef4fa6ce-4450-4f8f-923a-308742048e50
+2023-12-13 22:09:30.624  INFO [,7aa315c470259660,7aa315c470259660] 7493 --- [http-nio-auto-1-exec-1] c.c.c.gateway.service.SeguroService      : Excluir Seguro com id: ef4fa6ce-4450-4f8f-923a-308742048e50
+2023-12-13 22:09:31.022  INFO [,b78bbc2bf072b34e,b78bbc2bf072b34e] 7493 --- [http-nio-auto-1-exec-2] c.c.c.usecase.CriarSeguro                : Entrou na classe Criar Seguro
+2023-12-13 22:09:31.023  INFO [,b78bbc2bf072b34e,b78bbc2bf072b34e] 7493 --- [http-nio-auto-1-exec-2] c.c.c.usecase.CriarSeguro                : Gerando Seguro Calculado DTO
+2023-12-13 22:09:31.023  INFO [,b78bbc2bf072b34e,b78bbc2bf072b34e] 7493 --- [http-nio-auto-1-exec-2] c.c.c.usecase.CalcularPrecoSeguro        : Calcular o Preço do Seguro
+2023-12-13 22:09:31.029  INFO [,b78bbc2bf072b34e,b78bbc2bf072b34e] 7493 --- [http-nio-auto-1-exec-2] c.c.c.u.a.implemetation.CalculoIOF       : Calcular o Preço do IOF do Seguro
+2023-12-13 22:09:31.030  INFO [,b78bbc2bf072b34e,b78bbc2bf072b34e] 7493 --- [http-nio-auto-1-exec-2] c.c.c.u.a.implemetation.CalculoPIS       : Calcular o Preço do PIS do Seguro
+2023-12-13 22:09:31.032  INFO [,b78bbc2bf072b34e,b78bbc2bf072b34e] 7493 --- [http-nio-auto-1-exec-2] c.c.c.u.a.implemetation.CalculoCOFINS    : Calcular o Preço do CONFINNS do Seguro
+2023-12-13 22:09:31.035  INFO [,b78bbc2bf072b34e,b78bbc2bf072b34e] 7493 --- [http-nio-auto-1-exec-2] c.c.c.g.c.SeguroCalculadoConverter       : Convertendo DTO em Entity do Seguro
+2023-12-13 22:09:31.036  INFO [,b78bbc2bf072b34e,b78bbc2bf072b34e] 7493 --- [http-nio-auto-1-exec-2] c.c.c.gateway.service.SeguroService      : Salvar Seguro
+2023-12-13 22:09:31.045  INFO [,b78bbc2bf072b34e,b78bbc2bf072b34e] 7493 --- [http-nio-auto-1-exec-2] c.c.c.g.c.SeguroCalculadoConverter       : Convertendo retorno da Busca do Seguro
+2023-12-13 22:09:31.116  INFO [,05f828bd7ef02d46,05f828bd7ef02d46] 7493 --- [http-nio-auto-1-exec-3] c.c.c.usecase.AtualizarSeguro            : Entrou na Classe de Atualizar o Seguro com id: b7f072e3-eb59-4ac3-948e-550cede48d9a
+2023-12-13 22:09:31.117  INFO [,05f828bd7ef02d46,05f828bd7ef02d46] 7493 --- [http-nio-auto-1-exec-3] c.c.c.gateway.service.SeguroService      : Buscar Seguro com id: b7f072e3-eb59-4ac3-948e-550cede48d9a
+2023-12-13 22:09:31.124  INFO [,05f828bd7ef02d46,05f828bd7ef02d46] 7493 --- [http-nio-auto-1-exec-3] c.c.c.g.c.SeguroCalculadoConverter       : Convertendo retorno da Busca do Seguro
+2023-12-13 22:09:31.124  INFO [,05f828bd7ef02d46,05f828bd7ef02d46] 7493 --- [http-nio-auto-1-exec-3] c.c.c.usecase.AtualizarSeguro            : Valida envio valores na Classe de Atualizar o Seguro com id
+2023-12-13 22:09:31.124  INFO [,05f828bd7ef02d46,05f828bd7ef02d46] 7493 --- [http-nio-auto-1-exec-3] c.c.c.usecase.CalcularPrecoSeguro        : Calcular o Preço do Seguro
+2023-12-13 22:09:31.124  INFO [,05f828bd7ef02d46,05f828bd7ef02d46] 7493 --- [http-nio-auto-1-exec-3] c.c.c.u.a.implemetation.CalculoIOF       : Calcular o Preço do IOF do Seguro
+2023-12-13 22:09:31.124  INFO [,05f828bd7ef02d46,05f828bd7ef02d46] 7493 --- [http-nio-auto-1-exec-3] c.c.c.u.a.implemetation.CalculoPIS       : Calcular o Preço do PIS do Seguro
+2023-12-13 22:09:31.125  INFO [,05f828bd7ef02d46,05f828bd7ef02d46] 7493 --- [http-nio-auto-1-exec-3] c.c.c.u.a.implemetation.CalculoCOFINS    : Calcular o Preço do CONFINNS do Seguro
+2023-12-13 22:09:31.125  INFO [,05f828bd7ef02d46,05f828bd7ef02d46] 7493 --- [http-nio-auto-1-exec-3] c.c.c.g.c.SeguroCalculadoConverter       : Convertendo DTO em Entity do Seguro
+2023-12-13 22:09:31.125  INFO [,05f828bd7ef02d46,05f828bd7ef02d46] 7493 --- [http-nio-auto-1-exec-3] c.c.c.gateway.service.SeguroService      : Salvar Seguro
+2023-12-13 22:09:31.136  INFO [,05f828bd7ef02d46,05f828bd7ef02d46] 7493 --- [http-nio-auto-1-exec-3] c.c.c.g.c.SeguroCalculadoConverter       : Convertendo retorno da Busca do Seguro
+2023-12-13 22:09:31.161  INFO [,25223e3bdaa62e67,25223e3bdaa62e67] 7493 --- [http-nio-auto-1-exec-4] c.c.c.usecase.BuscarSeguro               : Entrou na Classe Buscar Seguro
+2023-12-13 22:09:31.161  INFO [,25223e3bdaa62e67,25223e3bdaa62e67] 7493 --- [http-nio-auto-1-exec-4] c.c.c.gateway.service.SeguroService      : Buscar Seguro com id: b3c0a63c-5caf-4393-bd8b-ac515ba0a351
+2023-12-13 22:09:31.164  INFO [,25223e3bdaa62e67,25223e3bdaa62e67] 7493 --- [http-nio-auto-1-exec-4] c.c.c.g.c.SeguroCalculadoConverter       : Convertendo retorno da Busca do Seguro
+2023-12-13 22:09:31.506  INFO [,,] 7493 --- [main] c.c.c.usecase.ExcluirSeguro              : Entrou na classe Excluir Seguro
+2023-12-13 22:09:31.702  INFO [,,] 7493 --- [main] c.c.c.usecase.CriarSeguro                : Entrou na classe Criar Seguro
+2023-12-13 22:09:31.703  INFO [,,] 7493 --- [main] c.c.c.usecase.CriarSeguro                : Gerando Seguro Calculado DTO
+2023-12-13 22:09:31.735  INFO [,,] 7493 --- [main] c.c.c.usecase.AtualizarSeguro            : Entrou na Classe de Atualizar o Seguro com id: 1
+2023-12-13 22:09:31.736  INFO [,,] 7493 --- [main] c.c.c.usecase.AtualizarSeguro            : Valida envio valores na Classe de Atualizar o Seguro com id
+2023-12-13 22:09:31.748  INFO [,,] 7493 --- [main] c.c.c.usecase.AtualizarSeguro            : Entrou na Classe de Atualizar o Seguro com id: 1
+2023-12-13 22:09:31.752  INFO [,,] 7493 --- [main] c.c.c.usecase.AtualizarSeguro            : Valida envio valores na Classe de Atualizar o Seguro com id
+2023-12-13 22:09:31.829  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoPIS       : Calcular o Preço do PIS do Seguro
+2023-12-13 22:09:31.832  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoCOFINS    : Calcular o Preço do CONFINNS do Seguro
+2023-12-13 22:09:31.839  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoIOF       : Calcular o Preço do IOF do Seguro
+2023-12-13 22:09:31.847  INFO [,,] 7493 --- [main] c.c.c.usecase.BuscarSeguro               : Entrou na Classe Buscar Seguro
+2023-12-13 22:09:32.001  INFO [,,] 7493 --- [main] c.c.c.usecase.CalcularPrecoSeguro        : Calcular o Preço do Seguro
+2023-12-13 22:09:32.006 ERROR [,,] 7493 --- [main] c.c.c.usecase.CalcularPrecoSeguro        : Preço Base do Seguro não enviado
+2023-12-13 22:09:32.087  INFO [,,] 7493 --- [main] c.c.c.usecase.CalcularPrecoSeguro        : Calcular o Preço do Seguro
+2023-12-13 22:09:32.088  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoIOF       : Calcular o Preço do IOF do Seguro
+2023-12-13 22:09:32.089  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoPIS       : Calcular o Preço do PIS do Seguro
+2023-12-13 22:09:32.090  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoCOFINS    : Calcular o Preço do CONFINNS do Seguro
+2023-12-13 22:09:32.098  INFO [,,] 7493 --- [main] c.c.c.usecase.CalcularPrecoSeguro        : Calcular o Preço do Seguro
+2023-12-13 22:09:32.099  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoIOF       : Calcular o Preço do IOF do Seguro
+2023-12-13 22:09:32.099  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoPIS       : Calcular o Preço do PIS do Seguro
+2023-12-13 22:09:32.100  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoCOFINS    : Calcular o Preço do CONFINNS do Seguro
+2023-12-13 22:09:32.108  INFO [,,] 7493 --- [main] c.c.c.usecase.CalcularPrecoSeguro        : Calcular o Preço do Seguro
+2023-12-13 22:09:32.108  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoIOF       : Calcular o Preço do IOF do Seguro
+2023-12-13 22:09:32.108  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoPIS       : Calcular o Preço do PIS do Seguro
+2023-12-13 22:09:32.108  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoCOFINS    : Calcular o Preço do CONFINNS do Seguro
+2023-12-13 22:09:32.116  INFO [,,] 7493 --- [main] c.c.c.usecase.CalcularPrecoSeguro        : Calcular o Preço do Seguro
+2023-12-13 22:09:32.116  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoIOF       : Calcular o Preço do IOF do Seguro
+2023-12-13 22:09:32.118  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoPIS       : Calcular o Preço do PIS do Seguro
+2023-12-13 22:09:32.118  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoCOFINS    : Calcular o Preço do CONFINNS do Seguro
+2023-12-13 22:09:32.126  INFO [,,] 7493 --- [main] c.c.c.usecase.CalcularPrecoSeguro        : Calcular o Preço do Seguro
+2023-12-13 22:09:32.127  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoIOF       : Calcular o Preço do IOF do Seguro
+2023-12-13 22:09:32.135  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoPIS       : Calcular o Preço do PIS do Seguro
+2023-12-13 22:09:32.136  INFO [,,] 7493 --- [main] c.c.c.u.a.implemetation.CalculoCOFINS    : Calcular o Preço do CONFINNS do Seguro
+2023-12-13 22:09:32.533  INFO [,,] 7493 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-13 22:09:32.546  INFO [,,] 7493 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-12-13 22:09:32.554  INFO [,,] 7493 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
